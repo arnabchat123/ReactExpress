@@ -1,9 +1,16 @@
 const express = require('express');
+require('./services/passport');
+const authRoutes = require('./routes/authRoutes');
+
 const app = express();
 
-app.get('/',(req, res)=>{
-  res.send({hi: 'Arnab'})
-});
+authRoutes(app);
 
-var PORT = process.env.PORT || 5000;
+// app.get('/auth/google',(req, res)=>{
+//   res.send({hi: 'Arnab'});
+// });
+
+
+
+let PORT = process.env.PORT || 5000;
 app.listen(PORT);
