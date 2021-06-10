@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStore } from 'react-redux';
 
-const landing = () => {
+const Landing = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>ReactExp</h1>
@@ -10,4 +10,4 @@ const landing = () => {
   );
 };
 
-export default landing;
+export default Landing;

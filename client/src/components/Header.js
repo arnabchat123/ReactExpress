@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
 class Header extends Component {
-  renderComponent() {
+  renderContent() {
     switch (this.props.auth) {
       case null:
         return;
@@ -30,44 +30,44 @@ class Header extends Component {
         return (
           <>
             <li>
-              <Link to="/auth/google">
+              <a href="/auth/google">
                 <FontAwesomeIcon icon={faGoogle} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/auth/github">
+              <a href="/auth/github">
                 <FontAwesomeIcon icon={faGithub} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/auth/facebook">
+              <a href="/auth/facebook">
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/">
+              <a href="/">
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/">
+              <a href="/">
                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/">
+              <a href="/">
                 <FontAwesomeIcon icon={faYahoo} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/">
+              <a href="/">
                 <FontAwesomeIcon icon={faWindows} size="2x" />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/">
+              <a href="/">
                 <FontAwesomeIcon icon={faAmazon} size="2x" />
-              </Link>
+              </a>
             </li>
           </>
         );
@@ -81,10 +81,10 @@ class Header extends Component {
             <font style={{ height: 10 }}>{this.props.auth.credits}</font>
           </li>,
           <li key="3" className="my-2">
-            <Link to="/api/logout">
+            <a href="/api/logout">
               LOGOUT
               <FontAwesomeIcon icon={faSignOutAlt} size="2x" />
-            </Link>
+            </a>
           </li>,
         ];
     }
@@ -93,14 +93,14 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <Link to={this.props.auth ? '/surveys' : '/'} className="brand-logo">
+          <a href={this.props.auth ? '/surveys' : '/'} className="brand-logo">
             <i className="fab fa-spin">
               <FontAwesomeIcon icon={faReact} size="3x" />
             </i>
             APP
-          </Link>
+          </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {this.renderComponent()}
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
@@ -108,8 +108,8 @@ class Header extends Component {
   }
 }
 
-function mapStateProps({ auth }) {
+function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateProps)(Header);
+export default connect(mapStateToProps)(Header);
